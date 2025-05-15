@@ -1,12 +1,10 @@
 import random
 
-# Function to generate fill-in-the-blank questions
 def create_fill_in_the_blanks(text, num_blanks=2, show_hints=False):
     words = text.split()
     if len(words) < 4:
         return "Error: The provided text is too short to create blanks."
     
-    # Select random positions to replace with blanks
     blank_positions = random.sample(range(len(words)), min(num_blanks, len(words)))
     correct_answers = {}
     question = words[:]
@@ -20,7 +18,6 @@ def create_fill_in_the_blanks(text, num_blanks=2, show_hints=False):
     
     return " ".join(question), correct_answers
 
-# Function to create a "Match the Following" exercise
 def create_match_the_following(set_a, set_b):
     if len(set_a) != len(set_b):
         return "Error: The number of items in both sets must match."
@@ -30,7 +27,6 @@ def create_match_the_following(set_a, set_b):
     
     return list(zip(set_a, shuffled_set_b))
 
-# Interactive game for fill-in-the-blanks
 def fill_in_the_blanks_game():
     text = input("\nEnter a sentence or paragraph for creating blanks: ").strip()
     num_blanks = int(input("How many blanks do you want (1-5)? ").strip())
@@ -51,7 +47,6 @@ def fill_in_the_blanks_game():
     
     print(f"\nYour total score: {score}/{len(correct_answers)}")
 
-# Interactive game for "Match the Following"
 def match_the_following_game():
     print("\nEnter items for List A (comma-separated):")
     set_a = [item.strip() for item in input().split(",")]
@@ -78,7 +73,6 @@ def match_the_following_game():
     
     print(f"\nYour total score: {score}/{len(result)}")
 
-# Main menu to navigate between games
 def main():
     print("Welcome to the Interactive NLP Game!")
     print("1. Play Fill in the Blanks")
@@ -97,6 +91,5 @@ def main():
         else:
             print("Invalid choice. Please try again.")
 
-# Start the program
 if __name__ == "__main__":
     main()
